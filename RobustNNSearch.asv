@@ -1,0 +1,27 @@
+function [nnIdx,distArray] = RobustNNSearch(imgFile,galleryDir)
+
+files = dir(galleryDir);
+
+distArray = [];
+nnIdx = 0;
+nnDist = inf;
+for idx = 1 : length(files)
+    if (files(idx).isdir==0)
+        %[dist1,dist2] = RobustDist(imgFile,[galleryDir,files(idx).name]);
+        %dist2 = StructDistance(imgFile,[galleryDir,files(idx).name]);
+        
+        I1 = imread(imgFile);
+        I1 = rgb2gray(I1);
+        I2 = imread()
+        
+        
+        distArray = [distArray;dist2];
+        fprintf('The dist to %s is %f ...\n',files(idx).name,dist2);
+        if (dist2<nnDist)
+            nnDist = dist2;
+            nnIdx = idx;
+        end
+    end
+end
+
+fprintf('The nearest neighbor of %s is %s ...\n',imgFile,files(nnIdx).name);
