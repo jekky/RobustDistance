@@ -10,4 +10,4 @@ for idx = 1 : length(probeFiles)
     end
 end
 
-save('./youtube_1_l2.mat','nnIdxArray');
+save('./youtube_2_l2.mat','nnIdxArray');

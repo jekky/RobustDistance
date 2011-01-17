@@ -11,9 +11,13 @@ for idx = 1 : length(files)
         %dist2 = StructDistance(imgFile,[galleryDir,files(idx).name]);
         
         I1 = imread(imgFile);
-        I1 = rgb2gray(I1);
+        if (size(I1,3)>1)
+            I1 = rgb2gray(I1);
+        end
         I2 = imread([galleryDir,files(idx).name]);
-        I2 = rgb2gray(I2);
+        if (size(I2,3)>1)
+            I2 = rgb2gray(I2);
+        end
         dist2 = norm(double(I1(:))-double(I2(:)));
         
         distArray = [distArray;dist2];
