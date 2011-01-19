@@ -1,4 +1,4 @@
-function BatchNNSearch(probeDir,galleryDir)
+function BatchNNSearch(probeDir,galleryDir,databaseName)
 
 probeFiles = dir(probeDir);
 
@@ -10,4 +10,4 @@ for idx = 1 : length(probeFiles)
     end
 end
 
-save('./youtube_2_l2.mat','nnIdxArray');
+save(['./',databaseName,'_l2.mat'],'nnIdxArray');
